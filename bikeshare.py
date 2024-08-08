@@ -1,6 +1,5 @@
 import time
 import pandas as pd
-import numpy as np
 
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
@@ -207,9 +206,22 @@ def main():
         row_data(df)
         
 
-        restart = input('\nWould you like to restart? Enter yes or no.\n')
-        if restart.lower() != 'yes':
+        value = True
+        while True:
+          restart = input('\nWould you like to restart? Enter yes or no.\n')
+          if restart.lower() == 'no':
+             value = False
+             break
+          elif restart.lower() == 'yes':
+             value = True
+             break
+          else:
+             print('Invalid input. Please enter yes or no.')
+        
+        if value == False:
             break
+        else:
+            continue
 
 
 if __name__ == "__main__":
